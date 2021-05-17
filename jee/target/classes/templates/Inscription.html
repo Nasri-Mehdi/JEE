@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+ 
+<title>Inscription</title>
+</head>
+<body>
+	<div class="jumbotron text-center" style="margin-bottom:0">
+	<h1>Inscription dans Projet</h1>
+	</div>
+	
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+  	<div class="collapse navbar-collapse" id="collapsibleNavbar">
+  	<ul class="navbar-nav">
+  	
+  		<li class="nav-item">
+  		<a class="navbar-brand" th:href="@{/departement/listDepU}">Departement</a>
+  		</li>
+       	<li class="nav-item">
+       	<a class="navbar-brand" th:href="@{/celebrite/listCelU}">Celebrite</a>
+		</li>
+		<li class="nav-item">
+       	<a class="navbar-brand" th:href="@{/Lieu/listLieuU}">Lieu</a>
+		</li>
+		
+		<li class="nav-item">
+       	<a class="navbar-brand" th:href="@{/Monument/listMonumentU}">Monument</a>
+		</li>
+  		
+  		<li class="nav-item">
+  			<a class="navbar-brand" th:href="@{/login}">Login</a>
+  		</li>
+  		<li></li>
+		<li class="nav-item">
+    		<a class="navbar-brand" th:href="@{/inscription}">Sign up</a>
+    	</li>
+    	</ul>
+    	</div>
+	</nav>
+	<br>
+	<br>
+	<br>
+	
+	
+	<div class="container">
+	<form th:action="@{/tlogin}" th:object="${USER}" method="POST">
+		<fieldset>
+			<legend>Creez votre compte</legend>
+			<br>
+			Mail:<br>
+			<input type="text" name="user" th:field="*{email}">
+			<br>
+			<br>
+			Nom:<br>
+			<input type="text" name="user" th:field="*{nom}">
+			<br>
+			<br>
+			Prenom:<br>
+			<input type="text" name="user" th:field="*{prenom}">
+			<br>
+			<br>
+			Password:<br>
+			<input type="password" name="user" th:field="*{MDP}">
+			<br>
+			<br>
+			Role:<br>
+			<select name="user" th:field="*{role}">
+				<option value="Admin">Admin</option>
+				<option value="Vouyageur">Vouyageur</option>
+				<option value="Visiteur">Visiteur</option>
+			</select>
+			<!--  <input type="text" name="user" th:field="*{role}">-->
+			<br>
+			<br>
+			<Button type="submit" class="btn btn-secondary">Inscrir</Button>
+		</fieldset>
+	</form>
+	</div>	
+	
+</body>
+</html>

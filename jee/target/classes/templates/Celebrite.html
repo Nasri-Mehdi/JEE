@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+<title>List Celebrites</title>
+</head>
+<body>
+
+	<div class="jumbotron text-center" style="margin-bottom:0">
+	<h1>Affichage des Lists Celebrites</h1>
+	</div>
+	
+	
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	<div class="collapse navbar-collapse" id="collapsibleNavbar">
+	
+	<ul class="navbar-nav">
+  		<li class="nav-item">
+  		<a class="navbar-brand" th:href="@{/departement/listDep}">Departement</a>
+  		</li>
+       	<li class="nav-item">
+       	<a class="navbar-brand" th:href="@{/celebrite/listCel}">Celebrite</a>
+		</li>
+		
+		<li class="nav-item">
+       	<a class="navbar-brand" th:href="@{/Lieu/listLieu}">Lieu</a>
+		</li>
+		
+		<li class="nav-item">
+       	<a class="navbar-brand" th:href="@{/Monument/listMonument}">Monument</a>
+		</li>
+		
+		<li class="nav-item">
+       	<a class="navbar-brand" th:href="@{/celebrite/ChargerCelebrite}">Ajoute Celebrite</a>
+		</li>
+        <li class="nav-item">
+        <a class="navbar-brand" th:href="@{/}">Deconnexion</a>
+		</li>
+		</ul>
+		</div>
+		</nav>
+		    <br>
+		    <br>
+		    <br>
+		    <br>
+
+    <div class="container mt-3">
+		<input class="form-control" id="myInput" type="text" placeholder="Search..">
+		<br>
+		<br>
+	</div>
+
+	
+	<table class="table">
+		<thead>
+		<tr>
+			<th width="200px">Numero Celebrite</th>
+			<th width="300px">Nom de Celebrite</th>
+			<th width="300px">Prenom de Celebrite</th>
+			<th width="300px">Nationalite</th>
+			<th width="300px">Epoque</th>
+			<th width="200px">Supperssion</th>
+			<th width="200px">Modification</th>
+		</tr>
+		</thead>
+		<thead id="myTable">
+		<tr th:each = 'lc : ${listcelebs}'>
+			<td th:utext = '${lc.num_Celebrite}'></td>
+			<td th:utext = '${lc.nom}'></td>
+			<td th:utext = '${lc.prenom}'></td>
+			<td th:utext = '${lc.nationalite}'></td>
+			<td th:utext = '${lc.epoque}'></td>
+			<td><a th:href="@{Supprimer(num_Celebrite=${lc.num_Celebrite})}">Supprimer</a></td>
+			<td><a th:href="@{modification(num_Celebrite=${lc.num_Celebrite})}">modification</a></td>
+		</tr>
+		</thead>
+	</table>
+	<br>
+	<br>
+	<br>
+	
+	<script>
+	$(document).ready(function(){
+		$("#myInput").on("keyup", function(){
+			var value = $(this).val().toLowerCase();
+			$("#myTable tr").filter(function(){
+				$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+			});
+		});
+	});
+	</script>
+	
+	
+	
+</body>
+</html>

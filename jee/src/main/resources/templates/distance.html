@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+<title>Distance</title>
+</head>
+
+<body>
+	<div class="jumbotron text-center" style="margin-bottom:0">
+	<h1>Distance entre les Monuments</h1>
+	</div>
+	
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	<div class="collapse navbar-collapse" id="collapsibleNavbar">
+	
+	<ul class="navbar-nav">
+  		<li class="nav-item">
+  		<a class="navbar-brand" th:href="@{/departement/listDepU}">Departement</a>
+  		</li>
+       	<li class="nav-item">
+       	<a class="navbar-brand" th:href="@{/celebrite/listCelU}">Celebrite</a>
+		</li>
+		<li class="nav-item">
+       	<a class="navbar-brand" th:href="@{/Lieu/listLieuU}">Lieu</a>
+		</li>
+		
+		<li class="nav-item">
+       	<a class="navbar-brand" th:href="@{/Monument/listMonumentU}">Monument</a>
+		</li>
+  		
+  		<li class="nav-item">
+  			<a class="navbar-brand" th:href="@{/login}">Login</a>
+  		</li>
+  		
+		<li class="nav-item">
+    		<a class="navbar-brand" th:href="@{/inscription}">Sign up</a>
+    	</li>
+		</ul>
+		</div>
+		</nav>
+		    <br>
+		    <br>
+		    <br>
+		    <br>
+		    
+		    <div class="container">
+		      <form th:action="@{/Monument/distance}"  method="post">
+		    	<br>
+
+		    	Choisi premier monument:<br>
+		    	<select required th:field="*{m1.nomM}">
+		    		<option value="">Premier Monument </option>
+		    		<option th:each="m1 : ${monu1}" th:value="${m1.nomM}" th:utext="${m1.nomM}"/>
+		    	</select>
+		    	<br>
+		    	<br>
+		    	<br>
+		    	
+		    	Choisi deuxiem monument:<br>
+		    	<select required th:field="*{m1.nomM}">
+		    		<option value="">deuxiem Monument </option>
+		    		<option th:each="m2 : ${monu2}" th:value="${m2.nomM}" th:utext="${m2.nomM}"/>
+		    	</select>
+		    	<br>
+		    	<br>
+		    	<br>
+			   		<span th:if="${distance} != null">
+			   		
+			    		La distance est: <br><span th:text="|${distance}|"></span>
+			    	</span>
+		    	<br>
+		    	<br>
+		    	<Button type="submit" class="btn btn-secondary">Distance</Button>
+
+		    	</form>
+		    </div>
+		 	    
+
+</body>
+</html>

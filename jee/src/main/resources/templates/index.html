@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+<title>Accueil</title>
+</head>
+<body>
+	<div class="jumbotron text-center" style="margin-bottom:0">
+	<h1>Projet Java EE</h1>
+	</div>
+	
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	<div class="collapse navbar-collapse" id="collapsibleNavbar">
+	
+	<ul class="navbar-nav">
+  		<li class="nav-item">
+  		<a class="navbar-brand" th:href="@{/departement/listDep}">Departement</a>
+  		</li>
+       	<li class="nav-item">
+       	<a class="navbar-brand" th:href="@{/celebrite/listCel}">Celebrite</a>
+		</li>
+		<li class="nav-item">
+       	<a class="navbar-brand" th:href="@{/Lieu/listLieu}">Lieu</a>
+		</li>
+		
+		<li class="nav-item">
+       	<a class="navbar-brand" th:href="@{/Monument/listMonument}">Monument</a>
+		</li>
+       <!-- <td><a th:href="@{/departement/ChargerDepartement}"><Button>Ajoute Departement</Button></Button></a></td> 
+        <td><a th:href="@{/celebrite/ChargerCelebrite}"><Button>Ajoute Celebrite</Button></a></td>  -->
+        <li class="nav-item">
+        <a class="navbar-brand" th:href="@{/}">Deconnexion</a>
+		</li>
+		</ul>
+		</div>
+		</nav>
+		<br>
+		<br>
+		<br>
+		
+		 <img src="http://solida-rio.fr/wp-content/uploads/2018/10/carte-des-departements-1.jpg" class="mx-auto d-block" style="width:30%">
+		
+        
+</body>
+</html>

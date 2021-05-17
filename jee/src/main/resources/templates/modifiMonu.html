@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+<title>modifie Departement</title>
+</head>
+<body>
+	<div class="jumbotron text-center" style="margin-bottom:0">
+	<h1>modifier un Departement</h1> 
+	</div>
+	 
+	 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	<div class="collapse navbar-collapse" id="collapsibleNavbar">
+	
+	<ul class="navbar-nav">
+  		<li class="nav-item">
+  		<a class="navbar-brand" th:href="@{/departement/listDep}">Departement</a>
+  		</li>
+       	<li class="nav-item">
+       	<a class="navbar-brand" th:href="@{/celebrite/listCel}">Celebrite</a>
+		</li>
+		
+		<li class="nav-item">
+       	<a class="navbar-brand" th:href="@{/Lieu/listLieu}">Lieu</a>
+		</li>
+		
+		<li class="nav-item">
+       	<a class="navbar-brand" th:href="@{/Monument/listMonument}">Monument</a>
+		</li>
+		
+        <li class="nav-item">
+        <a class="navbar-brand" th:href="@{/}">Deconnexion</a>
+		</li>
+		</ul>
+		</div>
+		</nav>
+		    <br>
+		    <br>
+		    <br>
+		    <br>
+	<div class="container"> 
+	<form th:action="@{/Monument/modifications}" th:object="${modificationMF}" method="POST">
+		<fieldset>
+			<legend>Info Monument</legend>
+			<br>
+			Code Monument:<br>
+			<input type="text" name="Monument" th:field="*{codeM}">
+			<br>
+			<br>
+			Code Lieu:<br>
+			<input type="text" name="Monument" th:field="*{codeLieu.codeInsee}">
+			<br>
+			<br>
+			Nom Monument:<br>
+			<input type="text" name="Monument" th:field="*{nomM}">
+			<br>
+			<br>
+			Proprietaire:<br>
+			<input type="text" name="Monument" th:field="*{proprietaire}">
+			<br>
+			<br>
+			Type Monument:<br>
+			<input type="text" name="Monument" th:field="*{typeMonument}">
+			<br>
+			<br>
+			Longitude:<br>
+			<input type="text" name="Monument" th:field="*{longitude}">
+			<br>
+			<br>
+			Latitude:<br>
+			<input type="text" name="Monument" th:field="*{latitude}">
+			<br>
+			<br>
+			<Button type="submit" class="btn btn-secondary">Modifier votre Monument</Button>
+		</fieldset>
+	</form>
+	</div>
+</body>
+</html>
